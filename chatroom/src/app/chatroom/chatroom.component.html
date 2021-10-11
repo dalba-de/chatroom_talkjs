@@ -1,0 +1,50 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    Transcendance Chat
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <button mat-icon-button class="menu-button">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
+            <mat-icon>face</mat-icon>
+            <span>Friends</span>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngFor="let user of users" (click)="chatOneToOne(user.name, user.photoUrl)">{{user}}</button>
+        </mat-menu>
+        
+        <button mat-icon-button class="menu-button">
+            <mat-icon>info</mat-icon>
+            <span>About</span>
+        </button>
+
+        <img class="avatar mat-elevation-z8" src={{imageUrl}} />
+
+        <h4 class="name">{{nickname}}</h4>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+           <div #talkjsContainer style="height: 500px; width: 700px">Loading...</div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

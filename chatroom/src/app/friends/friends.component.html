@@ -1,0 +1,51 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    Transcendance Chat
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <button mat-button class="menu-button">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        
+        <button mat-button class="menu-button">
+            <mat-icon>person</mat-icon>
+            <span>Friends</span>
+        </button>
+        
+        <button mat-button class="menu-button">
+            <mat-icon>info</mat-icon>
+            <span>About</span>
+        </button>
+
+        <img class="avatar mat-elevation-z8" src="https://cdn.intra.42.fr/users/dalba-de.jpg" />
+
+        <h4 class="name">{{nickname}}</h4>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+           <mat-card class="example-card" *ngFor="let user of Users">
+               <mat-card-content>
+                   {{user.name}}
+               </mat-card-content>
+           </mat-card>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

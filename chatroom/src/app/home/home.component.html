@@ -1,0 +1,7 @@
+<label for="nickname">Set Nickname</label>
+<input type="text" name="nickname" [(ngModel)]="nickname" placeholder="Nickname">
+<br>
+<label for="imageUrl">Set Image</label>
+<input type="text" name="imageUrl" [(ngModel)]="imageUrl" placeholder="Image Url">
+<br>
+<button (click) = "setData(nickname, imageUrl)" [disabled]="nickname === ''">Join Chat as {{nickname}}</button>
